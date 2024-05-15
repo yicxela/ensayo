@@ -1,0 +1,41 @@
+{{#if tasks}}
+
+<table class="table table-bordered table-hover table-dark">
+    <thead>
+        <tr>
+            <th>N.</th>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+  {{#each tasks}}
+<tr>
+    <td>{{@index}}</td>
+    <td>{{titulo}}</td>
+    <td>{{descripcion}}</td>
+    <td>
+        {{#if done}}
+        <a href="/done/{{_id}}/seleccionar" class="btn btn-info">no hecha</a>
+        {{else}}
+        <a href="/done/{{_id}}/seleccionar" class="btn btn-success">hecha</a>
+        {{/if}}
+        <a href="/delete/{{_id}}/eliminar" class="btn btn-danger">eliminar</a> 
+        <a href="/edit/{{_id}}/editar" class="btn btn-info">editar</a>
+    </td>
+</tr>
+
+
+  {{/each}}
+    </tbody>
+</table>
+{{else}}
+<div class="h-100 d-flex align-items-center justify-content-center">
+    <div class="text-center text-dark ">
+    <h1>no hay elementos</h1>
+    <img src="/icons/futbol.png" class="w-50">
+</div>
+</div>
+{{/if}}
